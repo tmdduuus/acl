@@ -1,0 +1,24 @@
+# File: acl/acl-service/src/main/resources/application.yml
+spring:
+  application:
+    name: acl-service
+
+server:
+  port: 8082
+
+azure:
+  eventhub:
+    connection-string: ${EVENT_HUB_CONNECTION_STRING}
+    name: ${EVENT_HUB_NAME}
+  storage:
+    connection-string: ${STORAGE_CONNECTION_STRING}
+    container: ${STORAGE_CONTAINER_NAME}
+
+notification:
+  mock:
+    url: http://${NOTIFICATION_HOST}:${NOTIFICATION_PORT}
+
+logging:
+  level:
+    com.telecom: DEBUG
+    com.azure.messaging.eventhubs: DEBUG

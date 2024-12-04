@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: notification-mock
+
+server:
+  port: 8083
+
+logging:
+  level:
+    com.telecom: DEBUG

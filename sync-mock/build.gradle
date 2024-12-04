@@ -1,0 +1,11 @@
+// File: acl/sync-mock/build.gradle
+dependencies {
+    implementation project(':common')
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.postgresql:postgresql'
+}
+
+bootJar {
+    archiveFileName = "sync-mock.jar"
+}

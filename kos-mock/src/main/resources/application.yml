@@ -1,0 +1,16 @@
+# File: acl/kos-mock/src/main/resources/application.yml
+spring:
+  application:
+    name: kos-mock
+
+server:
+  port: 8081
+
+azure:
+  eventhub:
+    connection-string: ${EVENT_HUB_CONNECTION_STRING}
+    name: ${EVENT_HUB_NAME}
+
+logging:
+  level:
+    com.telecom: DEBUG
