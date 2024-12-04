@@ -147,11 +147,6 @@ main() {
     wait_for_deletion
 
     log "모든 리소스가 정리되었습니다."
-
-    # 남은 리소스 확인
-    log "=== 남은 리소스 확인 ==="
-    kubectl get all -n $ACL_NS 2>/dev/null || echo "남은 Kubernetes 리소스 없음"
-    az acr repository list -n ${USERID}cr --output table 2>/dev/null || echo "남은 컨테이너 이미지 없음"
 }
 
 # 스크립트 시작
