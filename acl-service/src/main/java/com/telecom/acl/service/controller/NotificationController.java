@@ -22,24 +22,12 @@ public class NotificationController {
     @Operation(
             summary = "알림 테스트",
             description = """
-        SOAP 형식의 알림을 테스트로 발송합니다.
-        
-        예제 SOAP XML:
-        <?xml version="1.0" encoding="UTF-8"?>
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-            <soapenv:Body>
-                <notification>
-                    <userSequence>user1</userSequence>
-                    <svcTypeCd>D</svcTypeCd>
-                    <exceedQty>1000</exceedQty>
-                </notification>
-            </soapenv:Body>
-        </soapenv:Envelope>
-        
-        userSequence: user1~user5 중 하나
-        svcTypeCd: D(데이터), V(음성통화), S(문자메시지)
-        exceedQty: 사용량
-        """
+    알림을 테스트로 발송합니다.
+    
+    userSequence: user1~user5 중 하나
+    svcTypeCd: D(데이터), V(음성통화), S(문자메시지)
+    exceedQty: 사용량
+    """
     )
     @PostMapping("/test")
     public ResponseEntity<String> testNotification(@RequestBody ExcessNotificationSoap notification) {

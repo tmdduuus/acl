@@ -63,7 +63,7 @@ public class DataSyncService {
             }
 
             mongoTemplate.upsert(query, update, "phone_plan_views");
-            log.debug("Updated user {}'s {} usage", data.getUserSequence(), data.getSvcTypeCd());
+            log.debug("### Updated user {}'s {} usage TO {}", data.getUserSequence(), data.getSvcTypeCd(), data.getUsedQty());
         } catch (Exception e) {
             log.error("Error updating MongoDB: {}", e.getMessage(), e);
         }

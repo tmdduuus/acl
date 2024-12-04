@@ -507,7 +507,7 @@ spec:
  selector:
    app: acl-service
    userid: $USERID
- type: ClusterIP
+ type: LoadBalancer
 EOF
 
    # Notification Mock 배포
@@ -548,7 +548,7 @@ spec:
  selector:
    app: notification-mock
    userid: $USERID
- type: LoadBalancer
+ type: ClusterIP
 EOF
 
    # KOS Mock 배포
@@ -713,18 +713,17 @@ EOF
 
    # LoadBalancer IP 대기
    log "LoadBalancer IP 대기 중..."
-   for i in {1..30}; do
+   for i in {1..10}; do
        ACL_IP=$(kubectl get svc $NAME-service -n $ACL_NS -o jsonpath='{.status.loadBalancer.ingress[0].ip}' 2>/dev/null)
-       NOTIFICATION_IP=$(kubectl get svc $NAME-notification -n $ACL_NS -o jsonpath='{.status.loadBalancer.ingress[0].ip}' 2>/dev/null)
 
-       if [ ! -z "$ACL_IP" ] && [ ! -z "$NOTIFICATION_IP" ]; then
+       if [ ! -z "$ACL_IP" ]; then
            break
        fi
        log "LoadBalancer IP 대기 중... (${i}/30)"
        sleep 10
    done
 
-   if [ -z "$ACL_IP" ] || [ -z "$NOTIFICATION_IP" ]; then
+   if [ -z "$ACL_IP" ]; then
        log "Error: LoadBalancer IP를 얻는데 실패했습니다."
        exit 1
    fi

@@ -18,6 +18,13 @@ notification:
   mock:
     url: http://${NOTIFICATION_HOST}:${NOTIFICATION_PORT}
 
+# Swagger 설정
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /api-docs
+
 logging:
   level:
     com.telecom: DEBUG

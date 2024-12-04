@@ -13,7 +13,7 @@ spring:
   # MongoDB 설정 (Modern DB)
   data:
     mongodb:
-      uri: mongodb://${MONGODB_HOST:localhost}:${MONGODB_PORT:27017}/${MONGODB_DATABASE:telecomdb}?authSource=admin
+      uri: mongodb://${MONGODB_USER:mongodb}:${MONGODB_PASSWORD:mongodb}@${MONGODB_HOST:localhost}:${MONGODB_PORT:27017}/${MONGODB_DATABASE:telecomdb}?authSource=admin
 
   jpa:
     hibernate:
